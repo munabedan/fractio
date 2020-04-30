@@ -1,0 +1,37 @@
+#drop-area{
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    width: 480px;
+    font-family: sans-serif;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+#drop-area.highlight{
+    border-color: purple;
+}
+
+p{
+    margin-top: 0;
+}
+
+.my-form{
+    margin-bottom: 10px;
+}
+
+.button{
+    display: inline-block;
+    padding: 10px;
+    background: #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.button:hover{
+    background: #ddd;
+}
+
+#fileElem{
+    display: none;
+}
