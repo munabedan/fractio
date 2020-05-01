@@ -27,3 +27,38 @@ function highlight(e){
 function unhighlight(e){
     dropArea.classList.remove('highlight')
 }
+
+//handle drop
+
+dropArea.addEventListener('drop', handleDrop, false)
+
+function handleDrop(e){
+    let dt=e.dataTransfer
+    let files=dt.files
+    handleFiles(files)
+}
+
+function handleFiles(files){
+    ([...files]).forEach(uploadFile)
+
+}
+
+function readTheFile(file){
+    var reader=new FileReader();
+
+    reader.readAsText(file)
+
+    reader.onload=function(){
+        let contents=reader.result;
+        console.log(contents)
+    }
+
+    reader.onerror=function(event){
+        console.error("file could not be read"+event.target.error.code)
+    }
+}
+
+function uploadFile(file){
+    console.log(file)
+    readTheFile(file)
+   }
