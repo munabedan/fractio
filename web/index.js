@@ -1,6 +1,5 @@
 
 let dropArea=document.getElementById('drop-area')
-let a,b=0
 
 
 //This code prevents default behaviour for drag events
@@ -35,8 +34,6 @@ function unhighlight(e){
 dropArea.addEventListener('drop', handleDrop, false)
 
 function handleDrop(e){
-    a=performance.now()
-    console.log("exceuting count")
     let dt=e.dataTransfer
     let files=dt.files
     handleFiles(files)
@@ -75,10 +72,9 @@ function readTheFile(file){
 
 }
 
+//This fuction counts the number of words in the data string
 function wordCount(data){
     var words=data.match(/\S+/g);
-    b=performance.now()
-    console.log("took: "+(b-a)+".ms")
     console.log(words)
 }
 
