@@ -39,7 +39,7 @@ function handleDrop(e){
 }
 
 function handleFiles(files){
-    ([...files]).forEach(uploadFile)
+    ([...files]).forEach(readTheFile)
 
 }
 
@@ -58,7 +58,4 @@ function readTheFile(file){
     }
 }
 
-function uploadFile(file){
-    console.log(file)
-    readTheFile(file)
-   }
+   
