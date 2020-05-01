@@ -45,18 +45,30 @@ function handleFiles(files){
 
 //This function oppens the file and prints content to the console
 function readTheFile(file){
-    var reader=new FileReader();
 
-    reader.readAsText(file)
+    //Only works for text/plain file types
+    if (file.type=='text/plain' ){
+        let reader=new FileReader();
 
-    reader.onload=function(){
-        let contents=reader.result;
-        console.log(contents)
+        reader.readAsText(file)
+    
+        reader.onload=function(){
+            let filecontents=reader.result;
+            console.log(filecontents)
+        }
+    
+        reader.onerror=function(){
+            console.error("file could not be read")
+        }
     }
 
-    reader.onerror=function(event){
-        console.error("file could not be read"+event.target.error.code)
+    //TODO: -if type not available use other means 
+
+    else{
+        console.log("Type not supported: " +file.type)
     }
+
 }
+
 
    
