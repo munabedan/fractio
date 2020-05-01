@@ -1,5 +1,7 @@
 
 let dropArea=document.getElementById('drop-area')
+let a,b=0
+
 
 //This code prevents default behaviour for drag events
 ;['dragenter','dragover','dragleave','drop'].forEach(eventName =>{
@@ -33,6 +35,8 @@ function unhighlight(e){
 dropArea.addEventListener('drop', handleDrop, false)
 
 function handleDrop(e){
+    a=performance.now()
+    console.log("exceuting count")
     let dt=e.dataTransfer
     let files=dt.files
     handleFiles(files)
@@ -40,7 +44,7 @@ function handleDrop(e){
 
 function handleFiles(files){
     ([...files]).forEach(readTheFile)
-
+   
 }
 
 //This function oppens the file and prints content to the console
@@ -55,6 +59,7 @@ function readTheFile(file){
         reader.onload=function(){
             let filecontents=reader.result;
             console.log(filecontents)
+            wordCount(filecontents)
         }
     
         reader.onerror=function(){
@@ -68,6 +73,13 @@ function readTheFile(file){
         console.log("Type not supported: " +file.type)
     }
 
+}
+
+function wordCount(data){
+    var words=data.match(/\S+/g);
+    b=performance.now()
+    console.log("took: "+(b-a)+".ms")
+    console.log(words)
 }
 
 
