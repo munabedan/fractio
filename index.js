@@ -1,7 +1,7 @@
-//get drop area
+
 let dropArea=document.getElementById('drop-area')
 
-//prevent default behaviour
+//This code prevents default behaviour for drag events
 ;['dragenter','dragover','dragleave','drop'].forEach(eventName =>{
     dropArea.addEventListener(eventName, preventDefaults, false)
 })
@@ -11,7 +11,7 @@ function preventDefaults(e){
     e.stopPropagation()
 }
 
-//drag idicator
+//This code highlights the drop area if an item is dragged over
 ;['dragenter','dragover'].forEach(eventName =>{
     dropArea.addEventListener(eventName, highlight, false)
 })
@@ -28,7 +28,7 @@ function unhighlight(e){
     dropArea.classList.remove('highlight')
 }
 
-//handle drop
+//This is an event handler for the button and drop area
 
 dropArea.addEventListener('drop', handleDrop, false)
 
@@ -43,6 +43,7 @@ function handleFiles(files){
 
 }
 
+//This function oppens the file and prints content to the console
 function readTheFile(file){
     var reader=new FileReader();
 
