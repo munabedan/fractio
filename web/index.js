@@ -56,7 +56,7 @@ function readTheFile(file){
         reader.onload=function(){
             let filecontents=reader.result;
             console.log(filecontents)
-            wordCount(filecontents)
+            console.log(readTime(wordCount(filecontents)))
         }
     
         reader.onerror=function(){
@@ -76,7 +76,14 @@ function readTheFile(file){
 function wordCount(data){
     var words=data.match(/\S+/g);
     console.log(words)
+    return words.length
 }
 
 
-   
+//This function calculates the expected reading time
+function readTime(wordCount){
+    const wordsPerMinute=200
+    const minutes=wordCount/wordsPerMinute
+    const readTime=Math.ceil(minutes)
+    return `${readTime} minute read`
+}
