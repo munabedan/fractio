@@ -60,6 +60,11 @@ function readTheFile(file){
             sentenceCount(filecontents)
             console.log(file.name)
             displayDocStats(docStats)
+            console.log(filecontents)
+            eel.syllablescounter(filecontents.match(/\S+/g))(function(ret){console.log(ret)})
+
+    
+
         }
     
         reader.onerror=function(){
@@ -108,6 +113,10 @@ function readTime(wordCount){
     return `${readTime} minute read`
 }
 
+function readabilityScore(totalwords,totalsentences,totalsyllables){
+    score=206.835-1.015(totalwords/totalsentences)-84.6(totalsyllables/totalwords)
+    return score
+}
 
 //Display output 
 
