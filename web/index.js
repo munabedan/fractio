@@ -153,10 +153,7 @@ function displayDocStats(docStats){
     readtime.innerText=docStats.get('readtime')
     document.getElementById('readtime').appendChild(readtime)
 
-    let speaktime=document.createElement('span')
-    speaktime.innerText=docStats.get('speaktime')
-    document.getElementById('speaktime').appendChild(speaktime)
-
+  
     //readibility list
 
     let wordlen=document.createElement('span')
