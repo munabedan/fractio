@@ -10,15 +10,53 @@
 
   <body>
   <div id="drop-area">
-      <form class="my-form">
-          <p>upload by dropping files into dashed region</p>
-          <input type="file" id="fileElem" multiple onchange="handleFiles(this.files)">
-          <label class="button" for="fileElem">Select some file</label>
-      </form>
+    <form class="my-form">
+        <p>upload by dropping files into dashed region</p>
+        <input type="file" id="fileElem" multiple onchange="handleFiles(this.files)">
+        <label class="button" for="fileElem">Select some file</label>
+    </form>
   </div>
+
+      <!----display area-->
+      <div id="display-area">
+        <hr>
+        <!---display title-->
+        <div id="display-title">
+  
+        </div>
+        
+  
+        <!---display wordcount-->
+        <h4>Word Count</h4>
+        <div id="wordcount-box">
+          <ul>
+            <li id="characters">Characters </li>
+            <li id="words">Words </li>
+            <li id="sentences">Sentences </li>
+          </ul>
+          <ul>
+            <li id="readtime">Reading time </li>
+            <li id="speaktime">Speaking time </li>
+            <li></li>
+          </ul>
+        </div>
+  
+        <!---display Readability-->
+        <h4>Readability</h4>
+        <ul>
+          <li id="wordlen">Word length </li>
+          <li id="sentencelen">Sentence length </li>
+          <li id="readabilityscore">Readability score </li>
+        </ul>
+  
+        <hr>
+      </div>
+  
+
   </body>
 
   <script type="text/javascript" src="index.js"></script>
   
 </html>
+
 

@@ -55,8 +55,9 @@ function readTheFile(file){
     
         reader.onload=function(){
             let filecontents=reader.result;
-            console.log(filecontents)
-            console.log(readTime(wordCount(filecontents)))
+            let expectedreadtime=readTime(wordCount(filecontents))
+            console.log(file.name)
+            displayDocStats(docStats)
         }
     
         reader.onerror=function(){
@@ -75,9 +76,10 @@ function readTheFile(file){
 //This fuction counts the number of words in the data string
 function wordCount(data){
     var words=data.match(/\S+/g);
-    console.log(words)
+    console.log(words.length)
     return words.length
 }
+
 
 
 //This function calculates the expected reading time
@@ -87,3 +89,69 @@ function readTime(wordCount){
     const readTime=Math.ceil(minutes)
     return `${readTime} minute read`
 }
+
+
+//Display output 
+
+let docStats=new Map()
+
+function setdocStats(title,characters,word,sentences,readtime,speaktime,wordlen,sentencelen,readabilityscore){
+
+    docStats.set('title',title)
+    .set('characters',characters)
+    .set('words',word)
+    .set('sentences',sentences)
+    .set('readtime',readtime)
+    .set('speaktime',speaktime)
+    .set('wordlen',wordlen)
+    .set('sentencelen',sentencelen)
+    .set('readabilityscore',readabilityscore);
+
+
+}
+
+
+function displayDocStats(docStats){
+
+    //title
+    let title=document.createElement('h2')
+    title.innerText=docStats.get('title')
+    document.getElementById('display-title').appendChild(title)
+
+    //word count list
+    let characters=document.createElement('span')
+    characters.innerText=docStats.get('characters')
+    document.getElementById('characters').appendChild(characters)
+
+    let words=document.createElement('span')
+    words.innerText=docStats.get('words')
+    document.getElementById('words').appendChild(words)
+
+    let sentences=document.createElement('span')
+    sentences.innerText=docStats.get('sentences')
+    document.getElementById('sentences').appendChild(sentences)
+
+    let readtime=document.createElement('span')
+    readtime.innerText=docStats.get('readtime')
+    document.getElementById('readtime').appendChild(readtime)
+
+    let speaktime=document.createElement('span')
+    speaktime.innerText=docStats.get('speaktime')
+    document.getElementById('speaktime').appendChild(speaktime)
+
+    //readibility list
+
+    let wordlen=document.createElement('span')
+    wordlen.innerText=docStats.get('wordlen')
+    document.getElementById('wordlen').appendChild(wordlen)
+
+    let sentencelen=document.createElement('span')
+    sentencelen.innerText=docStats.get('sentencelen')
+    document.getElementById('sentencelen').appendChild(sentencelen)
+
+    let readabilityscore=document.createElement('span')
+    readabilityscore.innerText=docStats.get('readabilityscore')
+    document.getElementById('readabilityscore').appendChild(readabilityscore)
+
+}
+

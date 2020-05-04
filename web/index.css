@@ -1,9 +1,15 @@
+body{
+    width: 500px;
+    height: 200px;
+}
+
 #drop-area{
     border: 2px dashed #ccc;
     border-radius: 10px;
     width: 480px;
     font-family: sans-serif;
-    margin: 100px auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 20px;
 }
 
@@ -34,4 +40,43 @@ p{
 
 #fileElem{
     display: none;
+}
+
+*{
+    font-family: sans-serif;
+}
+
+#display-area{
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: unset;
+    width: 450px;
+}
+
+#display-title{
+   text-align: center;
+}
+
+ul{
+    list-style-type: none;
+    width: 200px;
+    font-size: 14px;
+
+}
+li{
+    margin-top: auto;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+#wordcount-box{
+    display: flex;
+    
+}
+
+span{
+    color: blue;   
+    float: right;
+    font-weight: bold;
 }
