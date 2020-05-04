@@ -55,7 +55,8 @@ function readTheFile(file){
     
         reader.onload=function(){
             let filecontents=reader.result;
-            let expectedreadtime=readTime(wordCount(filecontents))
+            wordCount(filecontents)
+            characterCount(filecontents)
             console.log(file.name)
             displayDocStats(docStats)
         }
@@ -76,10 +77,21 @@ function readTheFile(file){
 //This fuction counts the number of words in the data string
 function wordCount(data){
     var words=data.match(/\S+/g);
-    console.log(words.length)
+
     return words.length
 }
 
+//This function counts the number of characters in the file
+function characterCount(data){
+
+    let datalen=data.length
+    
+    let chars=data.match(/\s+/g)
+
+    let totalchars=datalen-chars.length
+    console.log(totalchars)
+
+}
 
 
 //This function calculates the expected reading time
