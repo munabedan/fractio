@@ -57,6 +57,7 @@ function readTheFile(file){
             let filecontents=reader.result;
             wordCount(filecontents)
             characterCount(filecontents)
+            sentenceCount(filecontents)
             console.log(file.name)
             displayDocStats(docStats)
         }
@@ -93,6 +94,11 @@ function characterCount(data){
 
 }
 
+//This function counts occurences of sentences in a file
+function sentenceCount(data){
+    let sentencecount=data.match(/\w[.?](\s|$)/g)
+    console.log(sentencecount.length)
+}
 
 //This function calculates the expected reading time
 function readTime(wordCount){
