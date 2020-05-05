@@ -162,7 +162,7 @@ console.log(totalwords,totalsentences,totalsyllables)
 let score=206.835-1.015*(totalwords/totalsentences)-84.6*(totalsyllables/totalwords)
 
 let readabilityscore=document.createElement('span')
-readabilityscore.innerText=score
+readabilityscore.innerText=Math.ceil(score)
 document.getElementById('readabilityscore').appendChild(readabilityscore)
 
 
