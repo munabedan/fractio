@@ -12,45 +12,17 @@
 
   <body>
   <div id="drop-area">
+    <img src="fractiologo.png" id="logo-img" alt="">
+    <img id="drag-img" src="drag-icon.png" alt="">
     <form class="my-form">
-        <p>upload by dropping files into dashed region</p>
         <input type="file" id="fileElem" multiple onchange="handleFiles(this.files)">
-        <label class="button" for="fileElem">Select some file</label>
+        <p> Drag & drop or <span><label class="button" for="fileElem">browse</label></span> your files</p>
+      
     </form>
-  </div>
 
-      <!----display area-->
-      <div id="display-area">
-        <hr>
-        <!---display title-->
-        <div id="display-title">
-  
-        </div>
-        
-  
-        <!---display wordcount-->
-        <h4>Word Count</h4>
-        <div id="wordcount-box">
-          <ul>
-            <li id="characters">Characters </li>
-            <li id="words">Words </li>
-          </ul>
-          <ul>
-            <li id="sentences">Sentences </li>
-            <li id="readtime">Reading time </li>
-          </ul>
-        </div>
-  
-        <!---display Readability-->
-        <h4>Readability</h4>
-        <ul>
-         
-          <li id="readabilityscore">Readability score </li>
-        </ul>
-  
-        <hr>
-      </div>
-  
+
+    
+  </div>
 
   </body>
 
