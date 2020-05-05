@@ -1,11 +1,14 @@
-body{
-    width: 500px;
-    height: 200px;
+body,html{
+    width: 790px;
+    height: 590px;
+    margin: unset;
 }
 #logo-img{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 30px;
+
     width: 50%;
 }
 
@@ -13,22 +16,27 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
     width: 20%;
 }
 #drop-area{
+  
+    width: 780px;
+    height: 580px;
     border: 2px dashed #ccc;
+    margin: 10px;
     border-radius: 5px;
-    width: 480px;
     font-family: sans-serif;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 20px;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #drop-area.highlight{
     border-color: #2A2A57;
 }
+
 
 p{
     margin-top: 0;
@@ -58,7 +66,7 @@ p{
 *{
     font-family: sans-serif;
 }
-
+/*
 #display-area{
     margin: 10px;
     margin-left: auto;
@@ -93,3 +101,4 @@ li.span{
     float: right;
     font-weight: bold;
 }
+*/

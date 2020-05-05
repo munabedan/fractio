@@ -15,4 +15,4 @@ def syllablescounter(data):
     return totalsyllables
 
 
-eel.start('index.html', size=(500,400))
+eel.start('index.html', size=(810,610))
