@@ -56,7 +56,7 @@ function readTheFile(file){
         reader.readAsText(file)
     
         reader.onload=function(){
-
+            window.location.href="docstats.html"
             let filecontents=reader.result;
 
             

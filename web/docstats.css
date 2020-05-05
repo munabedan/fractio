@@ -1,0 +1,10 @@
+
+.button{
+    display: inline-block;
+    color: #2A2A57;
+    font-weight: bold;
+}
+
+.button:hover{
+    font-weight: 1000;
+}
