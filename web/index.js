@@ -66,13 +66,12 @@ function readTheFile(file){
             docStats.set('words',wordCount(filecontents));
             docStats.set('sentences',sentenceCount(filecontents));
             docStats.set('readtime',readTime(docStats.get('words')));
-            docStats.set('syllables',count_em_syllables(filecontents));
           
             eel.syllablescounter(filecontents.match(/\S+/g))(function(ret){
                 calculateScore(docStats.get('words'),docStats.get('sentences'),ret)
             });
 
-                
+            displayDocStats(docStats)
         }
     
         reader.onerror=function(){
@@ -154,17 +153,18 @@ function displayDocStats(docStats){
     readtime.innerText=docStats.get('readtime')
     document.getElementById('readtime').appendChild(readtime)
 
-    let readabilityscore=document.createElement('span')
-    readabilityscore.innerText=docStats.get('readabilityscore')
-    document.getElementById('readabilityscore').appendChild(readabilityscore)
-
-
 
 
 }
 
 function calculateScore(totalwords,totalsentences,totalsyllables){      
-
+console.log(totalwords,totalsentences,totalsyllables)
 let score=206.835-1.015*(totalwords/totalsentences)-84.6*(totalsyllables/totalwords)
-docStats.set('readabilityscore',score)
+
+let readabilityscore=document.createElement('span')
+readabilityscore.innerText=score
+document.getElementById('readabilityscore').appendChild(readabilityscore)
+
+
+
 }
