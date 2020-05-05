@@ -43,7 +43,9 @@ function handleDrop(e){
 
 function handleFiles(files){
     ([...files]).forEach(readTheFile)
+   window.location.href="docstats.html"
    
+
 }
 
 //This function oppens the file and prints content to the console
@@ -56,7 +58,6 @@ function readTheFile(file){
         reader.readAsText(file)
     
         reader.onload=function(){
-            window.location.href="docstats.html"
             let filecontents=reader.result;
 
             
@@ -71,12 +72,20 @@ function readTheFile(file){
                 calculateScore(docStats.get('words'),docStats.get('sentences'),ret)
             });
 
-            displayDocStats(docStats)
+            sessionStorage.setItem("title",docStats.get('title'));
+            sessionStorage.setItem("characters",docStats.get('characters'));
+            sessionStorage.setItem("words",docStats.get('words'));
+            sessionStorage.setItem("sentences",docStats.get('sentences'));
+            sessionStorage.setItem("readtime",docStats.get('readtime'));
+    
         }
     
         reader.onerror=function(){
             console.error("file could not be read")
         }
+   
+
+
 
     }
 
@@ -125,46 +134,11 @@ function readTime(wordCount){
 
 
 
-//Display output 
-
-
-
-function displayDocStats(docStats){
-
-    //title
-    let title=document.createElement('h2')
-    title.innerText=docStats.get('title')
-    document.getElementById('display-title').appendChild(title)
-
-    //word count list
-    let characters=document.createElement('span')
-    characters.innerText=docStats.get('characters')
-    document.getElementById('characters').appendChild(characters)
-
-    let words=document.createElement('span')
-    words.innerText=docStats.get('words')
-    document.getElementById('words').appendChild(words)
-
-    let sentences=document.createElement('span')
-    sentences.innerText=docStats.get('sentences')
-    document.getElementById('sentences').appendChild(sentences)
-
-    let readtime=document.createElement('span')
-    readtime.innerText=docStats.get('readtime')
-    document.getElementById('readtime').appendChild(readtime)
-
-
-
-}
-
 function calculateScore(totalwords,totalsentences,totalsyllables){      
 console.log(totalwords,totalsentences,totalsyllables)
 let score=206.835-1.015*(totalwords/totalsentences)-84.6*(totalsyllables/totalwords)
 
-let readabilityscore=document.createElement('span')
-readabilityscore.innerText=Math.ceil(score)
-document.getElementById('readabilityscore').appendChild(readabilityscore)
-
+sessionStorage.setItem("readscore",Math.ceil(score));
 
 
 }
