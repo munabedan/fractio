@@ -11,6 +11,8 @@ def syllablescounter(data):
     for i in range(length):
         word=syllables.estimate(data[i])
         totalsyllables=totalsyllables+word
+    print(totalsyllables)
     return totalsyllables
+
 
 eel.start('index.html', size=(500,400))

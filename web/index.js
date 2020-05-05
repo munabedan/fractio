@@ -1,7 +1,9 @@
 
 let dropArea=document.getElementById('drop-area')
+let docStats=new Map()
+let SYLLABLES=0
 
-
+let readabilityscore=0
 //This code prevents default behaviour for drag events
 ;['dragenter','dragover','dragleave','drop'].forEach(eventName =>{
     dropArea.addEventListener(eventName, preventDefaults, false)
@@ -54,22 +56,29 @@ function readTheFile(file){
         reader.readAsText(file)
     
         reader.onload=function(){
+
             let filecontents=reader.result;
-            wordCount(filecontents)
-            characterCount(filecontents)
-            sentenceCount(filecontents)
-            console.log(file.name)
-            displayDocStats(docStats)
-            console.log(filecontents)
-            eel.syllablescounter(filecontents.match(/\S+/g))(function(ret){console.log(ret)})
 
-    
+            
+            //work on file
+            docStats.set('title',file.name);
+            docStats.set('characters',characterCount(filecontents));
+            docStats.set('words',wordCount(filecontents));
+            docStats.set('sentences',sentenceCount(filecontents));
+            docStats.set('readtime',readTime(docStats.get('words')));
+            docStats.set('syllables',count_em_syllables(filecontents));
+          
+            eel.syllablescounter(filecontents.match(/\S+/g))(function(ret){
+                calculateScore(docStats.get('words'),docStats.get('sentences'),ret)
+            });
 
+                
         }
     
         reader.onerror=function(){
             console.error("file could not be read")
         }
+
     }
 
     //TODO: -if type not available use other means 
@@ -79,6 +88,7 @@ function readTheFile(file){
     }
 
 }
+
 
 //This fuction counts the number of words in the data string
 function wordCount(data){
@@ -95,14 +105,15 @@ function characterCount(data){
     let chars=data.match(/\s+/g)
 
     let totalchars=datalen-chars.length
-    console.log(totalchars)
+    return totalchars
 
 }
 
 //This function counts occurences of sentences in a file
 function sentenceCount(data){
     let sentencecount=data.match(/\w[.?](\s|$)/g)
-    console.log(sentencecount.length)
+    
+    return sentencecount.length
 }
 
 //This function calculates the expected reading time
@@ -110,32 +121,13 @@ function readTime(wordCount){
     const wordsPerMinute=200
     const minutes=wordCount/wordsPerMinute
     const readTime=Math.ceil(minutes)
-    return `${readTime} minute read`
+    return `${readTime} min`
 }
 
-function readabilityScore(totalwords,totalsentences,totalsyllables){
-    score=206.835-1.015(totalwords/totalsentences)-84.6(totalsyllables/totalwords)
-    return score
-}
+
 
 //Display output 
 
-let docStats=new Map()
-
-function setdocStats(title,characters,word,sentences,readtime,speaktime,wordlen,sentencelen,readabilityscore){
-
-    docStats.set('title',title)
-    .set('characters',characters)
-    .set('words',word)
-    .set('sentences',sentences)
-    .set('readtime',readtime)
-    .set('speaktime',speaktime)
-    .set('wordlen',wordlen)
-    .set('sentencelen',sentencelen)
-    .set('readabilityscore',readabilityscore);
-
-
-}
 
 
 function displayDocStats(docStats){
@@ -162,20 +154,17 @@ function displayDocStats(docStats){
     readtime.innerText=docStats.get('readtime')
     document.getElementById('readtime').appendChild(readtime)
 
-  
-    //readibility list
-
-    let wordlen=document.createElement('span')
-    wordlen.innerText=docStats.get('wordlen')
-    document.getElementById('wordlen').appendChild(wordlen)
-
-    let sentencelen=document.createElement('span')
-    sentencelen.innerText=docStats.get('sentencelen')
-    document.getElementById('sentencelen').appendChild(sentencelen)
-
     let readabilityscore=document.createElement('span')
     readabilityscore.innerText=docStats.get('readabilityscore')
     document.getElementById('readabilityscore').appendChild(readabilityscore)
 
+
+
+
 }
 
+function calculateScore(totalwords,totalsentences,totalsyllables){      
+
+let score=206.835-1.015*(totalwords/totalsentences)-84.6*(totalsyllables/totalwords)
+docStats.set('readabilityscore',score)
+}
