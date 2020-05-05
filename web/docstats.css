@@ -1,4 +1,8 @@
-
+body,html{
+    width: 790px;
+    height: 590px;
+    margin: unset;
+}
 .button{
     display: inline-block;
     color: #2A2A57;
@@ -9,9 +13,21 @@
     font-weight: 1000;
 }
 
-/*
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 40%;
+}
+
+
+
+
+
 #display-area{
-    margin: 50px;
+    width: 550px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: unset;
@@ -19,18 +35,20 @@
 
 #display-title{
    text-align: center;
+   font-size: x-large;
 }
 
 ul{
     list-style-type: none;
     width: 200px;
-    font-size: 14px;
+    font-size: 16px;
 
 }
 li{
     margin-top: auto;
     margin-bottom: 4px;
     font-weight: 500;
+    font-size: 16px;
 }
 
 #wordcount-box{
@@ -38,9 +56,12 @@ li{
     
 }
 
-li.span{
+span{
     color: blue;   
     float: right;
     font-weight: bold;
 }
-*/
+p{
+    margin-top: 30px;
+    text-align: center;
+}
