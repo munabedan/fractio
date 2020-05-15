@@ -18,7 +18,7 @@ This appliation was made with eel (javascript) and syllables (python)
 ## Install
 The app still has a long way to go before stable usability.
 ``` 
-git clone 
+git clone https://github.com/munabedan/fractio.git
 ```
 ## Usage
 open up a terminal and run
