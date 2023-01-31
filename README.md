@@ -9,15 +9,15 @@
 
 <p align="center">
   <a href="https://www.python.org/">
-  <img src="https://img.shields.io/static/v1?label=python&message=3.6%20|%203.7%20|%203.8&color=<COLOR>" alt="Python" />
+  <img src="https://img.shields.io/static/v1?label=python&message=3.6%20|%203.7%20|%203.8&color=<COLOR>" />
   </a>
 <br>
   <a href="https://github.com/python-eel/Eel">
-  <img src="https://img.shields.io/static/v1?label=python-eel&message=0.15.1&color=<COLOR>" alt="Eel" />
+  <img src="https://img.shields.io/static/v1?label=python-eel&message=0.15.1&color=<COLOR>" />
   </a>
 <br>
   <a href="https://github.com/prosegrinder/python-syllables">
-  <img src="https://img.shields.io/static/v1?label=python-syllables&message=1.0.6&color=<COLOR>" alt="Syllables" />
+  <img src="https://img.shields.io/static/v1?label=python-syllables&message=1.0.6&color=<COLOR>"  />
   </a>  
 <br>
   <a href="https://opensource.org/licenses/MIT">
