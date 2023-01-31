@@ -1,0 +1,16 @@
+bottle==0.12.23
+bottle-websocket==0.2.9
+cmudict==1.0.13
+Eel==0.15.1
+future==0.18.3
+gevent==22.10.2
+gevent-websocket==0.10.1
+greenlet==2.0.2
+importlib-metadata==5.2.0
+importlib-resources==5.10.2
+pyparsing==3.0.9
+syllables==1.0.6
+whichcraft==0.6.1
+zipp==3.12.0
+zope.event==4.6
+zope.interface==5.5.2
