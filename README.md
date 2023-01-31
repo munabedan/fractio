@@ -56,7 +56,7 @@ $ git clone https://github.com/munabedan/fractio.git
 $ cd fractio
 
 # Install dependencies
-$  pip install -r requirements.txt
+$ pip install -r requirements.txt
 
 # Run the app
 $ python3 rtc.py
