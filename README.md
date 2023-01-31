@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://www.python.org/">
-  <img src="https://img.shields.io/static/v1?label=python&message=3.6%20|%203.7%20|%203.8&color=<COLOR>" />
+  <img src="https://img.shields.io/badge/Powered%20by-PostgreSQL-blue.svg" />
   </a>
 <br>
   <a href="https://github.com/python-eel/Eel">
