@@ -9,19 +9,19 @@
 
 <p align="center">
   <a href="https://www.python.org/">
-  <img src="https://img.shields.io/badge/python-grey%203.6%20|%203.7%20|%203.8-brightgreen.svg" />
+  <img src="https://img.shields.io/badge/python-grey%203.6%20|%203.7%20|%203.8-brightgreen.svg" alt="Python"/>
   </a>
 <br>
   <a href="https://github.com/python-eel/Eel">
-  <img src="https://img.shields.io/static/v1?label=python-eel&message=0.15.1&color=<COLOR>" />
+  <img src="https://img.shields.io/badge/python%20eel-grey%200.15.1-brightgreen.svg" alt="Eel"  />
   </a>
 <br>
   <a href="https://github.com/prosegrinder/python-syllables">
-  <img src="https://img.shields.io/static/v1?label=python-syllables&message=1.0.6&color=<COLOR>"  />
+  <img src="https://img.shields.io/badge/python%20syllables-grey%201.0.6-brightgreen.svg" alt="Syllables"  />
   </a>  
 <br>
   <a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=<COLOR>" alt="License" />
+  <img src="https://img.shields.io/badge/license-grey%20MIT-brightgreen.svg" alt="License" />
   </a>
  
 
